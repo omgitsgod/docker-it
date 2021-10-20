@@ -1,0 +1,25 @@
+{
+  "name": "docker-it",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Docker",
+    "CLI",
+    "React"
+  ],
+  "author": "penchen",
+  "license": "ISC",
+  "bin": {
+    "docker-it": "./src/index.js"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "figlet": "^1.5.2",
+    "hasbin": "^1.2.3",
+    "inquirer": "^8.2.0"
+  }
+}

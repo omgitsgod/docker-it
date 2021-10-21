@@ -1,6 +1,25 @@
 const inquirer = require('inquirer');
 
-const askProject = () => {
+const askPackage = async () => {
+
+  const questions = [
+    {
+      name: 'package',
+      type: 'list',
+      message: 'Package type?',
+      choices: ['yarn', 'npm', new inquirer.Separator(), 'Exit'],
+    },
+  ];
+
+  const { package } = await inquirer.prompt(questions)
+
+  if (package === 'Exit') process.exit()
+  
+  return package
+}
+
+const askProject = async () => {
+
   const questions = [
     {
       name: 'project',
@@ -10,20 +29,29 @@ const askProject = () => {
     },
   ]
 
-  return inquirer.prompt(questions);
+  const { project } = await inquirer.prompt(questions);
+
+  if (project === 'Exit') process.exit();
+
+  return project;
 }
 
-const askEnvironment = () => {
+const askEnvironment = async () => {
+
   const questions = [
     {
       name: 'env',
       type: 'list',
       message: 'Environment?',
-      choices: ['Dev', 'Exit']
+      choices: ['Dev', new inquirer.Separator(), 'Exit']
     }
   ]
 
-  return inquirer.prompt(questions);
+  const { env } = await inquirer.prompt(questions);
+
+  if (env === 'Exit') process.exit();
+
+  return env;
 }
 
-module.exports = { askProject, askEnvironment };
+module.exports = { askPackage, askProject, askEnvironment };
